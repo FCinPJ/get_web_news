@@ -5,14 +5,15 @@ from old_or_new import clarify_old_or_new
 
 #url = 'http://www.zjgsu.edu.cn/news/' #浙江工商大学新闻网
 
-def news_get(url,fold_name,*selectors): #参数url：要爬取的网站，fold_name：创建存放txt文件的文件夹名，*selector传入任意个数selector
+def news_get(url,fold_name,selectors): #参数url：要爬取的网站，fold_name：创建存放txt文件的文件夹名，selectors传入任意个数selector
     
     html = get_html(url) #获取html
     soup = BeautifulSoup(html,'html.parser')  #定义一个Soup对象
 
     data = [] 
-
+    selectors=selectors.split(',')
     for selector in selectors:
+
         try:
             newses = soup.select(selector) # 一定注意selector的正确性
             

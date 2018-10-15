@@ -4,7 +4,10 @@ from write_down_diff import write_down_diff
 
 def has_diff(fold_name):
     
-    file1_lines = read_line(fold_name+'/new.txt')
+    try:
+        file1_lines = read_line(fold_name+'/new.txt')
+    except:
+        exit(0)
     file2_lines = read_line(fold_name+'/old.txt')
 
     d = difflib.Differ()    #创建Diff对象
@@ -24,7 +27,7 @@ def has_diff(fold_name):
                 diff_text.append(item[2:]) # 将开头的-号和‘ ’去掉
         except:
             pass
-    
+
     # 得到的内容再与old.txt做循环比较，若无相同元素，则为用户需要的新信息
     #print(file2_lines) 
     for i in file2_lines:
@@ -37,4 +40,3 @@ def has_diff(fold_name):
 #    d = difflib.HtmlDiff()
 #    print(d.make_file(file1_lines,file2_lines))
     
-
