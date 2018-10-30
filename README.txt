@@ -1,6 +1,14 @@
 py文件（可通用）：
 
-url_get.py 获取页面源码，其中方法：
+url_get_utf8.py 获取页面源码，其中方法：
+    ----get_html(url)
+        ----url：需要获取信息网页的url
+        
+url_get_gb2312.py 获取页面源码，其中方法：
+    ----get_html(url)
+        ----url：需要获取信息网页的url
+
+url_get_gbk.py 获取页面源码，其中方法：
     ----get_html(url)
         ----url：需要获取信息网页的url
         
